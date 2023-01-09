@@ -3,7 +3,7 @@
 The main goal of this work was to understand <strong>how numbers are stored in computer memory</strong> and <strong>to learn 2d arrays</strong> in practice.<br>
 Below I will separately explain the meaning of each function that is presented in this project.<br>
 # (De)encoding a character
-<strong>Highlighting the problem</strong><br>
+<strong>Highlighting the problem of function <i>void encode_char</i></strong><br>
 The idea behind this function was to write a program that does not return values, but fills the <strong>bits array</strong> with <strong>true</strong> or <strong>false</strong> values.<br>
 The field will contain the value of the <strong>character</strong> in the binary system.<br>
 <strong>Functions Call Example</strong>
@@ -15,7 +15,11 @@ for(int i = 0; i < 8; i++){
 }
 printf("\n");
 // prints: 01000001
-
+```
+<strong>Highlighting the problem of function <i>char decode_byte</i></strong><br>
+The idea behind this function was to write a program that returns a character that has the same value in the ASCII table (in the decimal system) as written in the <strong>bits</strong> array in binary format.<br>
+<strong>Functions Call Example</strong>
+```c
 bool bits2[8] = {0,1,0,0,0,0,0,1};
 printf("%c\n", decode_byte(bits2));
 // prints: A
