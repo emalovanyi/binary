@@ -7,7 +7,7 @@ Below I will separately explain the meaning of each function that is presented i
 The idea behind this function was to write a program that does not return values, but fills the <strong>bits array</strong> with <strong>true</strong> or <strong>false</strong> values.<br>
 The field will contain the value of the <strong>character</strong> in the binary system.<br>
 <strong>Functions Call Example</strong>
-```
+```c
 bool bits1[8];
 encode_char('A', bits1);
 for(int i = 0; i < 8; i++){
