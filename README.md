@@ -25,7 +25,7 @@ printf("%c\n", decode_byte(bits2));
 // prints: A
 ```
 # (De)Encoding a string
-<strong>Highlighting the problem of function <i>void encode_string</i></strong><br>\
+<strong>Highlighting the problem of function <i>void encode_string</i></strong><br>
 The idea behind this function was to write a program that does not return any value, but fills the <strong>bytes</strong> array with <strong>true</strong> or <strong>false</strong> values.<br>
 The array will contain the ASCII character values from the <strong>string</strong> in binary, including the line terminator.<br>
 <strong>Functions Call Example</strong>
