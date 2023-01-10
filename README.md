@@ -82,4 +82,90 @@ decode_bytes(7, bytes2, string);
 printf("%s\n", string);
 // prints: Hello!
 ```
-
+# (De)Coding Blocks
+<strong>Highlighting the problem of function <i>void bytes_to_blocks</i></strong><br>
+The idea behind this function was to write a program that does not return any value, but fills the <strong>blocks</strong> array with codes for each of the characters in the string.<br>
+<strong>Functions Call Example</strong>
+```c
+int length = 4+1, cols = 3, offset = 2;
+bool bytes1[4+1][8] = {
+    {0,1,0,0,0,0,0,1},
+    {0,1,1,0,1,0,0,0},
+    {0,1,1,0,1,1,1,1},
+    {0,1,1,0,1,0,1,0},
+    {0,0,0,0,0,0,0,0}
+};
+bool blocks1[offset*8][cols];
+bytes_to_blocks(cols, offset, blocks1, length, bytes1);
+for(int j = 0; j < offset*8; j++){
+    for(int i = 0; i < cols; i++){
+        printf("%d ", (blocks1[j][i] == true) ? 1 : 0);
+    }
+    printf("\n");
+    if(j % 8 == 7){
+        printf("\n");
+    }
+}
+// prints:
+// 0 0 0 
+// 1 1 1 
+// 0 1 1 
+// 0 0 0 
+// 0 1 1 
+// 0 0 1 
+// 0 0 1 
+// 1 0 1 
+// 
+// 0 0 0 
+// 1 0 0 
+// 1 0 0 
+// 0 0 0 
+// 1 0 0 
+// 0 0 0 
+// 1 0 0 
+// 0 0 0
+```
+<strong>Highlighting the problem of function <i>void blocks_to_bytes</i></strong><br>
+The idea behind this function was to write a program that does not return any value, but fills the <strong>bytes</strong> field with the codes for each of the characters in the string.<br>
+<strong>Functions Call Example</strong>
+```c
+bool blocks2[2*8][3] = {
+    {0,0,0},
+    {1,1,1},
+    {0,1,1},
+    {0,0,0},
+    {0,1,1},
+    {0,0,1},
+    {0,0,1},
+    {1,0,1},
+    {0,0,0},
+    {1,0,0},
+    {1,0,0},
+    {0,0,0},
+    {1,0,0},
+    {0,0,0},
+    {1,0,0},
+    {0,0,0}
+};
+bool bytes2[length][8];
+blocks_to_bytes(3, 2, blocks2, length, bytes2);
+for(int j = 0; j < length; j++){
+    for(int i = 0; i < 8; i++){
+        printf("%d", bytes2[j][i]);
+    }
+    printf("\n");
+}
+// prints:
+// 01000001
+// 01101000
+// 01101111
+// 01101010
+// 00000000
+```
+# An example of using the program
+<strong>Compiling a program</strong>
+```c
+gcc -std=c11 -Werror -Wall -lm 
+```
+<strong>Example of using</strong><br>
+![image](https://user-images.githubusercontent.com/70052763/211438298-a2e2442f-c09a-4b88-aa11-b281c188abaa.png)
